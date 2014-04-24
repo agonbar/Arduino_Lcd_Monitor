@@ -13,3 +13,18 @@ Z:\Aaron Kable\Downloads\CoreTemp_lcd-master (1)\CoreTemp_lcd-master\CoreTemp Mo
 Z:\Aaron Kable\Downloads\CoreTemp_lcd-master (1)\CoreTemp_lcd-master\CoreTemp Module\ArduinoCoreTemp\obj\x86\Debug\ArduinoCoreTemp.application
 Z:\Aaron Kable\Downloads\CoreTemp_lcd-master (1)\CoreTemp_lcd-master\CoreTemp Module\ArduinoCoreTemp\obj\x86\Debug\ArduinoCoreTemp.exe
 Z:\Aaron Kable\Downloads\CoreTemp_lcd-master (1)\CoreTemp_lcd-master\CoreTemp Module\ArduinoCoreTemp\obj\x86\Debug\ArduinoCoreTemp.pdb
+D:\Documentos\Mis documentos\GitHub\CoreTemp_lcd\CoreTemp Module\ArduinoCoreTemp\bin\Debug\ArduinoCoreTemp.exe.config
+D:\Documentos\Mis documentos\GitHub\CoreTemp_lcd\CoreTemp Module\ArduinoCoreTemp\obj\x86\Debug\ArduinoCoreTemp.exe
+D:\Documentos\Mis documentos\GitHub\CoreTemp_lcd\CoreTemp Module\ArduinoCoreTemp\obj\x86\Debug\ArduinoCoreTemp.pdb
+D:\Documentos\Mis documentos\GitHub\CoreTemp_lcd\CoreTemp Module\ArduinoCoreTemp\obj\x86\Debug\ArduinoCoreTemp.csprojResolveAssemblyReference.cache
+D:\Documentos\Mis documentos\GitHub\CoreTemp_lcd\CoreTemp Module\ArduinoCoreTemp\obj\x86\Debug\ArduinoCoreTempModule.Arduino_Main.resources
+D:\Documentos\Mis documentos\GitHub\CoreTemp_lcd\CoreTemp Module\ArduinoCoreTemp\obj\x86\Debug\ArduinoCoreTempModule.Properties.Resources.resources
+D:\Documentos\Mis documentos\GitHub\CoreTemp_lcd\CoreTemp Module\ArduinoCoreTemp\obj\x86\Debug\ArduinoCoreTemp.csproj.GenerateResource.Cache
+D:\Documentos\Mis documentos\GitHub\CoreTemp_lcd\CoreTemp Module\ArduinoCoreTemp\bin\Debug\ardtemp1.ico
+D:\Documentos\Mis documentos\GitHub\CoreTemp_lcd\CoreTemp Module\ArduinoCoreTemp\bin\Debug\ArduinoCoreTemp.exe.manifest
+D:\Documentos\Mis documentos\GitHub\CoreTemp_lcd\CoreTemp Module\ArduinoCoreTemp\bin\Debug\ArduinoCoreTemp.application
+D:\Documentos\Mis documentos\GitHub\CoreTemp_lcd\CoreTemp Module\ArduinoCoreTemp\bin\Debug\ArduinoCoreTemp.exe
+D:\Documentos\Mis documentos\GitHub\CoreTemp_lcd\CoreTemp Module\ArduinoCoreTemp\bin\Debug\ArduinoCoreTemp.pdb
+D:\Documentos\Mis documentos\GitHub\CoreTemp_lcd\CoreTemp Module\ArduinoCoreTemp\bin\Debug\GetCoreTempInfoNET.dll
+D:\Documentos\Mis documentos\GitHub\CoreTemp_lcd\CoreTemp Module\ArduinoCoreTemp\obj\x86\Debug\ArduinoCoreTemp.exe.manifest
+D:\Documentos\Mis documentos\GitHub\CoreTemp_lcd\CoreTemp Module\ArduinoCoreTemp\obj\x86\Debug\ArduinoCoreTemp.application

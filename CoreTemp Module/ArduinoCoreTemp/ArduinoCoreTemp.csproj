@@ -59,9 +59,6 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
-  </PropertyGroup>
-  <PropertyGroup>
     <ApplicationIcon>ardtemp1.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>

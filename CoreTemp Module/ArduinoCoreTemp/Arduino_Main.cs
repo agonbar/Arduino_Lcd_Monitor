@@ -132,7 +132,8 @@ namespace ArduinoCoreTempModule
                 // #.#Ghz,#.#,##:##,###
 
                 dtString = myDt.ToString(datePatt);
-                String output = Math.Round((CTInfo.GetCPUSpeed / 1000), 1) + "Ghz" + "," + Math.Round(maxT, 1) + "," + dtString + "," + +((int)(load / CTInfo.GetCoreCount));
+                //String output = Math.Round((CTInfo.GetCPUSpeed / 1000), 1) + "Ghz" + ";" + Math.Round(maxT, 1) + ";" + dtString + ";" + +((int)(load / CTInfo.GetCoreCount));
+                String output = "RAM:" + ((getAvailableRAM() * 100 / totalRam)) + "%" + ";" + Math.Round(maxT, 1) + ";" + dtString + ";" + +((int)(load / CTInfo.GetCoreCount)); //modificado
                 //update tooltip icon
                 ACTnotf.Text = "Module Running - " + output;
                 
@@ -144,7 +145,8 @@ namespace ArduinoCoreTempModule
                     {
                         this.Invoke((MethodInvoker)delegate
                         { // added ram to display not to string as arduino is not updated to show it yet.
-                            tbConsole.Text = output + "," + getAvailableRAM() + "," + totalRam + "," + ((getAvailableRAM() * 100 / totalRam))+"%"; // runs on UI thread 
+                            //tbConsole.Text = output + ";" + getAvailableRAM() + ";" + totalRam + ";" + ((getAvailableRAM() * 100 / totalRam))+"%"; // runs on UI thread 
+                            tbConsole.Text = output; // modificado
                         });
                     }
                     catch (Exception excp)
