@@ -1,4 +1,4 @@
-Arduino CoreTemp Module
+Arduino LCD Monitor
 ============
 
 ![](http://i789.photobucket.com/albums/yy180/aaronkable/ArduinoCoreTemp.png)
