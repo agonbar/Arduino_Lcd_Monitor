@@ -3,13 +3,10 @@ Arduino CoreTemp Module
 
 ![](http://i789.photobucket.com/albums/yy180/aaronkable/ArduinoCoreTemp.png)
 
-this is my Com String Parser + lcd display for CoreTemp
+This is a fork to try integrating afterburner in this monitor, as well as a graphical lcd
 
 
 Versions
 --------
-	6-7-13
-	- Added Binaries
-
-    9-9-12
-    - Initial Commit. will build from here
+	25-04-2014
+	- Initial fork and set-up for my likes.
