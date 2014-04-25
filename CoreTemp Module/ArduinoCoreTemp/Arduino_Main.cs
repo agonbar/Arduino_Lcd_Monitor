@@ -138,7 +138,7 @@ namespace ArduinoMonitorModule
                 HardwareMonitor mahm = new HardwareMonitor();
                 //String output = Math.Round((CTInfo.GetCPUSpeed / 1000), 1) + "Ghz" + ";" + Math.Round(maxT, 1) + ";" + dtString + ";" + +((int)(load / CTInfo.GetCoreCount));
                 //String output = "RAM:" + (((totalRam - getAvailableRAM()) * 100 / totalRam)) + "%" + ";" + Math.Round(maxT, 1) + ";" + dtString + ";" + +((int)(load / CTInfo.GetCoreCount)); //CPU
-                String output = "0:" + mahm.Entries[0].Data.ToString() + "C" + ";" + "1:" + mahm.Entries[1].Data.ToString() + "C" + ";" + dtString + ";" + mahm.Entries[2].Data.ToString() + "%"; //GPU
+                String output = "0:" + mahm.Entries[0].Data.ToString() + "C" + ";" + "1:" + mahm.Entries[1].Data.ToString() + "C" + ";" + mahm.Entries[2].Data.ToString() + "%"; //GPU
                 //update tooltip icon
                 ACTnotf.Text = "Module Running - " + output;
                 

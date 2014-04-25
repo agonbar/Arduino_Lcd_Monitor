@@ -34,6 +34,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.tbConsole = new System.Windows.Forms.TextBox();
             this.ACTnotf = new System.Windows.Forms.NotifyIcon(this.components);
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.SuspendLayout();
             // 
             // cbCom
@@ -68,6 +69,14 @@
             this.ACTnotf.Text = "notifyIcon1";
             this.ACTnotf.Visible = true;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(284, 24);
+            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
             // Arduino_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -76,7 +85,9 @@
             this.Controls.Add(this.tbConsole);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cbCom);
+            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "Arduino_Main";
             this.Text = "Arduino Monitor";
@@ -91,6 +102,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox tbConsole;
         private System.Windows.Forms.NotifyIcon ACTnotf;
+        private System.Windows.Forms.MenuStrip menuStrip1;
     }
 }
 
