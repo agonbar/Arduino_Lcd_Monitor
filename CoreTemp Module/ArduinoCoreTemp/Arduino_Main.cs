@@ -4,6 +4,8 @@ using System.Text;
 using System.Timers;
 using System.IO.Ports;
 using GetCoreTempInfoNET;
+using MSI.Afterburner;
+using MSI.Afterburner.Exceptions;
 using System.Windows.Forms;
 using System.Diagnostics;
 
@@ -18,7 +20,7 @@ namespace ArduinoCoreTempModule
         //ram use
         private Microsoft.VisualBasic.Devices.ComputerInfo CI = new Microsoft.VisualBasic.Devices.ComputerInfo();
         //ram use
-        private ulong ramCounter; 
+        //private ulong ramCounter; 
 
         public ulong getAvailableRAM(){
             return CI.AvailablePhysicalMemory / 1048576; 
@@ -73,6 +75,7 @@ namespace ArduinoCoreTempModule
             {
                 comPort.Open();
             }
+            #pragma warning disable 0168 //variable declared but not used
             catch (Exception expt)
             {
                 // not avail main thread will deal with it
@@ -132,8 +135,10 @@ namespace ArduinoCoreTempModule
                 // #.#Ghz,#.#,##:##,###
 
                 dtString = myDt.ToString(datePatt);
+                HardwareMonitor mahm = new HardwareMonitor();
                 //String output = Math.Round((CTInfo.GetCPUSpeed / 1000), 1) + "Ghz" + ";" + Math.Round(maxT, 1) + ";" + dtString + ";" + +((int)(load / CTInfo.GetCoreCount));
-                String output = "RAM:" + ((getAvailableRAM() * 100 / totalRam)) + "%" + ";" + Math.Round(maxT, 1) + ";" + dtString + ";" + +((int)(load / CTInfo.GetCoreCount)); //modificado
+                //String output = "RAM:" + (((totalRam - getAvailableRAM()) * 100 / totalRam)) + "%" + ";" + Math.Round(maxT, 1) + ";" + dtString + ";" + +((int)(load / CTInfo.GetCoreCount)); //CPU
+                String output = "GPU0:" + mahm.Entries[0].Data.ToString() + "C" + ";" + mahm.Entries[1].Data.ToString() + ";" + dtString + ";" + mahm.Entries[2].Data.ToString(); //GPU
                 //update tooltip icon
                 ACTnotf.Text = "Module Running - " + output;
                 
@@ -149,6 +154,7 @@ namespace ArduinoCoreTempModule
                             tbConsole.Text = output; // modificado
                         });
                     }
+
                     catch (Exception excp)
                     {
 
