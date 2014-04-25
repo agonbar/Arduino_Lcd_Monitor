@@ -19,7 +19,7 @@
 #include <LiquidCrystal.h>
 
 //my lcd is the freetronics LCD Shield
-LiquidCrystal lcd(8, 9, 4, 5, 6, 7);
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 
 //setup the special chars for hte graph
 
@@ -145,17 +145,16 @@ void graph(int load, int width){
     //clear
     lcd.clear();
     lcd.setCursor(0, 0);
-    lcd.write(8);
     lcd.print(coretmp.toInt());
-    lcd.print((char)223);
-    lcd.setCursor(5, 0);
-    lcd.write(7);
-    graph(coreLoad,10);
+    //lcd.write(7);
+    lcd.setCursor(4, 0);
+    graph(coreLoad,12);
     // temps n stuffs
     lcd.setCursor(0, 1);
-    lcd.write((char)402);
+    lcd.write(8);
     lcd.print(coreSpd);
-    lcd.setCursor(10, 1);
+    lcd.print((char)223);
+    lcd.setCursor(9, 1);
     lcd.write(8);
     lcd.print(coretmp);
     lcd.print((char)223);
@@ -184,9 +183,9 @@ void serialEvent() {
     // so the main loop can do something about it:
     // update the strings to input.
     if (inChar == '\n') {
-      b[1] = inputString.indexOf(',');
-      b[2] = inputString.indexOf(',', b[1]+1);
-      b[3] = inputString.indexOf(',', b[2]+1);
+      b[1] = inputString.indexOf(';');
+      b[2] = inputString.indexOf(';', b[1]+1);
+      b[3] = inputString.indexOf(';', b[2]+1);
       b[4] = inputString.length()-1;
       coreSpd = inputString.substring(b[0],b[1]);
       coretmp = inputString.substring(b[1]+1,b[2]);

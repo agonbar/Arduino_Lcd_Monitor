@@ -29,3 +29,5 @@ D:\Documentos\Mis documentos\GitHub\CoreTemp_lcd\CoreTemp Module\ArduinoCoreTemp
 D:\Documentos\Mis documentos\GitHub\CoreTemp_lcd\CoreTemp Module\ArduinoCoreTemp\obj\x86\Debug\ArduinoCoreTemp.exe.manifest
 D:\Documentos\Mis documentos\GitHub\CoreTemp_lcd\CoreTemp Module\ArduinoCoreTemp\obj\x86\Debug\ArduinoCoreTemp.application
 D:\Documentos\Mis documentos\GitHub\CoreTemp_lcd\CoreTemp Module\ArduinoCoreTemp\bin\Debug\MSIAfterburner.NET.dll
+D:\Documentos\Mis documentos\GitHub\CoreTemp_lcd\CoreTemp Module\ArduinoCoreTemp\bin\Debug\ArduinoTempMonitor.exe.config
+D:\Documentos\Mis documentos\GitHub\CoreTemp_lcd\CoreTemp Module\ArduinoCoreTemp\bin\Debug\ArduinoMonitor.exe.config

@@ -1,4 +1,4 @@
-﻿namespace ArduinoCoreTempModule
+﻿namespace ArduinoMonitorModule
 {
     partial class Arduino_Main
     {
@@ -79,7 +79,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Arduino_Main";
-            this.Text = "Arduino CoreTemp Module";
+            this.Text = "Arduino Monitor";
             this.ResumeLayout(false);
             this.PerformLayout();
 

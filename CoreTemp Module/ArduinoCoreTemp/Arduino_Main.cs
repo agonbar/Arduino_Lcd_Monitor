@@ -9,7 +9,7 @@ using MSI.Afterburner.Exceptions;
 using System.Windows.Forms;
 using System.Diagnostics;
 
-namespace ArduinoCoreTempModule
+namespace ArduinoMonitorModule
 {
     public partial class Arduino_Main : Form
     {
@@ -138,14 +138,20 @@ namespace ArduinoCoreTempModule
                 HardwareMonitor mahm = new HardwareMonitor();
                 //String output = Math.Round((CTInfo.GetCPUSpeed / 1000), 1) + "Ghz" + ";" + Math.Round(maxT, 1) + ";" + dtString + ";" + +((int)(load / CTInfo.GetCoreCount));
                 //String output = "RAM:" + (((totalRam - getAvailableRAM()) * 100 / totalRam)) + "%" + ";" + Math.Round(maxT, 1) + ";" + dtString + ";" + +((int)(load / CTInfo.GetCoreCount)); //CPU
-                String output = "GPU0:" + mahm.Entries[0].Data.ToString() + "C" + ";" + mahm.Entries[1].Data.ToString() + ";" + dtString + ";" + mahm.Entries[2].Data.ToString(); //GPU
+                String output = "0:" + mahm.Entries[0].Data.ToString() + "C" + ";" + "1:" + mahm.Entries[1].Data.ToString() + "C" + ";" + dtString + ";" + mahm.Entries[2].Data.ToString() + "%"; //GPU
                 //update tooltip icon
                 ACTnotf.Text = "Module Running - " + output;
                 
                 // write com if avail if not notify
                 if (comPort.IsOpen)
                 {
+                    try{
                     comPort.WriteLine(output);
+                    }
+                    catch (System.IO.IOException argEx)
+                    {
+                        
+                    }
                     try
                     {
                         this.Invoke((MethodInvoker)delegate
@@ -203,7 +209,13 @@ namespace ArduinoCoreTempModule
 
             if (comPort.IsOpen)
             {
-                comPort.Close();
+                try
+                {
+                    comPort.Close();
+                }
+                catch (System.IO.IOException argEx)
+                { //nothing?
+                }
             }
             comPort = new SerialPort(("" + cbCom.SelectedItem), 19200);
             try
