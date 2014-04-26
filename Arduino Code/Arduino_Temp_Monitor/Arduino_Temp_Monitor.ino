@@ -19,8 +19,8 @@
 #include <LiquidCrystal.h>
 
 //my lcd is the freetronics LCD Shield
-LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
-
+LiquidCrystal lcdGPU(7, 6, 5, 4, 3, 2);
+LiquidCrystal lcdCPU(7, 8, 5, 4, 3, 2);
 //setup the special chars for hte graph
 
   byte line5[8] =
@@ -71,28 +71,35 @@ String inputString = "";
 boolean NewData = false;  // update Lcd flag
 
 // holder strings
-String coreSpd = "";
-String coretmp = "";
-String coretime = "";
-int coreLoad = 0;
+String gpu0tmp = "", gpu1tmp = "", ram = "", cputmp="";
+int gpuLoad = 0, cpuLoad = 0;
 
 void setup() {
   // setup LCD
-  lcd.begin(16, 2);
+  lcdGPU.begin(16, 2);
+  lcdCPU.begin(16, 2);
   // initialize serial:
   Serial.begin(19200);
   // reserve 200 bytes for the inputString:
   inputString.reserve(200);
   
   //make the graph chars
-  lcd.createChar(6, line0); // cant use 0
-  lcd.createChar(1, line1);
-  lcd.createChar(2, line2);
-  lcd.createChar(3, line3);
-  lcd.createChar(4, line4);
-  lcd.createChar(5, line5);
-  lcd.createChar(7, loadchar);
-  lcd.createChar(8, tempchar);
+  lcdGPU.createChar(6, line0); // cant use 0
+  lcdGPU.createChar(1, line1);
+  lcdGPU.createChar(2, line2);
+  lcdGPU.createChar(3, line3);
+  lcdGPU.createChar(4, line4);
+  lcdGPU.createChar(5, line5);
+  lcdGPU.createChar(7, loadchar);
+  lcdGPU.createChar(8, tempchar);
+  lcdCPU.createChar(6, line0); // cant use 0
+  lcdCPU.createChar(1, line1);
+  lcdCPU.createChar(2, line2);
+  lcdCPU.createChar(3, line3);
+  lcdCPU.createChar(4, line4);
+  lcdCPU.createChar(5, line5);
+  lcdCPU.createChar(7, loadchar);
+  lcdCPU.createChar(8, tempchar);
   //lcd.createChar(9, corechar); // too many chars
 
 
@@ -104,7 +111,7 @@ int dely = 0;
 
 
 //draw the graph - load is a %, witdh is the length in lcd Chars
-void graph(int load, int width){
+void graph(int load, int width, int screen){
   // cell = 100/size
   // show the % one
   // loop for full
@@ -119,7 +126,8 @@ void graph(int load, int width){
   // add fulls
   int i = 0;
   while(i<full_cells){
-    lcd.write(5);
+    if(screen == 0){lcdGPU.write(5);}
+    else {lcdCPU.write(5);}
     i++;
   }
   // add scaled cell  
@@ -130,34 +138,49 @@ void graph(int load, int width){
   }
   //dont show a random blanck @ 100%
   if (load < 100){
-    lcd.write(test);
+    if(screen == 0){lcdGPU.write(test);}
+    else{lcdCPU.write(test);}
   }
   i++;
   // add blanks
   while(i<width){
-    lcd.write(6);
+    if(screen == 0){lcdGPU.write(6);}
+    else{lcdCPU.write(6);}
     i++;
   }
   
   }void loop() {
   // print the string when a newline arrives:
   if (NewData) {    
-    //clear
-    lcd.clear();
-    lcd.setCursor(0, 0);
-    lcd.print(coretmp.toInt());
-    //lcd.write(7);
-    lcd.setCursor(4, 0);
-    graph(coreLoad,12);
-    // temps n stuffs
-    lcd.setCursor(0, 1);
-    lcd.write(8);
-    lcd.print(coreSpd);
-    lcd.print((char)223);
-    lcd.setCursor(9, 1);
-    lcd.write(8);
-    lcd.print(coretmp);
-    lcd.print((char)223);
+    //GPU
+    lcdGPU.clear();
+    lcdGPU.setCursor(0, 0);
+    lcdGPU.print(gpuLoad);
+    lcdGPU.print("%");
+    lcdGPU.setCursor(4, 0);
+    graph(gpuLoad,12, 0);
+    lcdGPU.setCursor(0, 1);
+    lcdGPU.write(8);
+    lcdGPU.print(gpu0tmp);
+    lcdGPU.print((char)223);
+    lcdGPU.setCursor(9, 1);
+    lcdGPU.write(8);
+    lcdGPU.print(gpu1tmp);
+    lcdGPU.print((char)223);
+    //CPU
+    lcdCPU.clear();
+    lcdCPU.setCursor(0, 0);
+    lcdCPU.print(cpuLoad);
+    lcdCPU.print("%");
+    lcdCPU.setCursor(4, 0);
+    graph(cpuLoad,12, 1);
+    lcdCPU.setCursor(0, 1);
+    lcdCPU.print("RAM:");
+    lcdCPU.print(ram);
+    lcdCPU.print("%");
+    lcdCPU.setCursor(12, 1);
+    lcdCPU.write(8);
+    lcdCPU.print(cputmp);
     inputString = "";
     NewData = false;
   }
@@ -186,12 +209,18 @@ void serialEvent() {
       b[1] = inputString.indexOf(';');
       b[2] = inputString.indexOf(';', b[1]+1);
       b[3] = inputString.indexOf(';', b[2]+1);
-      b[4] = inputString.length()-1;
-      coreSpd = inputString.substring(b[0],b[1]);
-      coretmp = inputString.substring(b[1]+1,b[2]);
-      coretime = inputString.substring(b[2]+1,b[3]);
-      String loadHold = inputString.substring(b[3]+1,b[4]);
-      coreLoad = loadHold.toInt();
+      b[4] = inputString.indexOf(';', b[3]+1);
+      b[5] = inputString.indexOf(';', b[4]+1);
+      b[6] = inputString.length()-1;
+      gpu0tmp = inputString.substring(b[0],b[1]);
+      gpu1tmp = inputString.substring(b[1]+1,b[2]);
+      ram = inputString.substring(b[2]+1,b[3]);
+      cputmp = inputString.substring(b[3]+1,b[4]);
+      String loadHold = inputString.substring(b[4]+1,b[5]);
+      gpuLoad = loadHold.toInt();
+      loadHold = inputString.substring(b[5]+1,b[6]);
+      cpuLoad = loadHold.toInt();
+      
       NewData = true;
     } 
   }
