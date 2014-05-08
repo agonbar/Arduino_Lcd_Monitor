@@ -14,3 +14,6 @@ D:\Documentos\Mis documentos\GitHub\CoreTemp_lcd\CoreTemp Module\ArduinoCoreTemp
 D:\Documentos\Mis documentos\GitHub\CoreTemp_lcd\CoreTemp Module\ArduinoCoreTemp\obj\x86\Debug\ArduinoMonitor.exe
 D:\Documentos\Mis documentos\GitHub\CoreTemp_lcd\CoreTemp Module\ArduinoCoreTemp\obj\x86\Debug\ArduinoMonitor.pdb
 D:\Documentos\Mis documentos\GitHub\CoreTemp_lcd\CoreTemp Module\ArduinoCoreTemp\obj\x86\Debug\ArduinoMonitor.csprojResolveAssemblyReference.cache
+D:\Documentos\Mis documentos\GitHub\CoreTemp_lcd\ArduinoMonitor\ArduinoCoreTemp\bin\Debug\ArduinoMonitor.exe.config
+D:\Documentos\Mis documentos\GitHub\CoreTemp_lcd\ArduinoMonitor\ArduinoCoreTemp\obj\x86\Debug\ArduinoMonitor.exe
+D:\Documentos\Mis documentos\GitHub\CoreTemp_lcd\ArduinoMonitor\ArduinoCoreTemp\obj\x86\Debug\ArduinoMonitor.pdb
