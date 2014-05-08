@@ -44,10 +44,13 @@ namespace ArduinoMonitorModule
         {
             InitializeComponent();
 
-            ACTnotf.BalloonTipText = "The Module is Still Running Find it Down Here!";
+            ACTnotf.BalloonTipText = "Arduino conexion opened";
             ACTnotf.BalloonTipTitle = "Arduino CoreTemp Module";
             
             // ui
+
+            this.WindowState = FormWindowState.Minimized;
+            this.ShowInTaskbar = false;
 
             // RAM
             
@@ -239,18 +242,18 @@ namespace ArduinoMonitorModule
         // minimise to tray
         private void frm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to close?\nSerial Communications will be closed", "Arduino CoreTemp", MessageBoxButtons.YesNo) == DialogResult.No)
+            /*if (MessageBox.Show("Are you sure you want to close?\nSerial Communications will be closed", "Arduino CoreTemp", MessageBoxButtons.YesNo) == DialogResult.No)
             {
                 e.Cancel = true;
             }
             else
-            {
+            {*/
                 if (comPort.IsOpen)
                 {
                     comPort.Close();
                 }
                 ACTnotf.Visible = false;
-            }
+            //}
         } 
       
     }
